@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Capacitor serves the app from local files inside the Android WebView.
+  output: "export",
+  trailingSlash: true,
+  assetPrefix: "./",
+  images: { unoptimized: true },
   turbopack: {
     rules: {
       "*.css": {

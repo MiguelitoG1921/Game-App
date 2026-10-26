@@ -26,6 +26,29 @@ npm run dev
 
 Open http://localhost:3000.
 
+## Build the Android app
+
+The Android app uses Capacitor to package the static Next.js export in a native Android WebView.
+
+1. Install Android Studio with Android SDK Platform 36 and SDK Tools, plus JDK 21. Set `ANDROID_HOME` to your Android SDK directory. The APK script detects a compatible JDK 21 installation automatically.
+2. Install project dependencies with `npm install`.
+3. Build the debug APK from the project root:
+
+   ```bash
+   npm run android:apk
+   ```
+
+   The APK is written to `android/app/build/outputs/apk/debug/app-debug.apk`. To open the native project in Android Studio instead, run the web build and sync first:
+
+   ```bash
+   npm run build:web
+   npx cap sync android
+   ```
+
+   Then open the `android` folder in Android Studio.
+
+After changing the game, repeat the web build and Capacitor sync before rebuilding the APK. The current simulation runs only while the app is open.
+
 ## Environment variables
 
 See `.env.example`. In short:
